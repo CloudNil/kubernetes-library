@@ -22,6 +22,8 @@ for imageName in ${images[@]} ; do
 done
 ```
 
+
+
 #### kubernetes v1.5.1 dependency:
 - etcd-amd64:2.2.5
 - kubedns-amd64:1.7
@@ -45,11 +47,14 @@ for imageName in ${images[@]} ; do
 done
 ```
 
+
+
 #### kubernetes v1.5.2 dependency:
 - etcd-amd64:2.2.5
-- kubedns-amd64:1.7
-- kube-dnsmasq-amd64:1.3 
-- exechealthz-amd64:1.1 
+- kubedns-amd64:1.9
+- kube-dnsmasq-amd64:1.4 
+- dnsmasq-metrics-amd64:1.0
+- exechealthz-amd64:1.2 
 - pause-amd64:3.0
 - kube-discovery-amd64:1.0
 - kube-proxy-amd64:v1.5.2 
@@ -60,7 +65,7 @@ done
 
 ```bash
 #!/bin/bash
-images=(kube-proxy-amd64:v1.5.2 kube-discovery-amd64:1.0 kubedns-amd64:1.7 kube-scheduler-amd64:v1.5.2 kube-controller-manager-amd64:v1.5.2 kube-apiserver-amd64:v1.5.2 etcd-amd64:2.2.5 kube-dnsmasq-amd64:1.3 exechealthz-amd64:1.1 pause-amd64:3.0 kubernetes-dashboard-amd64:v1.5.0)
+images=(kube-proxy-amd64:v1.5.2 kube-discovery-amd64:1.0 kubedns-amd64:1.9 kube-scheduler-amd64:v1.5.2 kube-controller-manager-amd64:v1.5.2 kube-apiserver-amd64:v1.5.2 etcd-amd64:2.2.5 kube-dnsmasq-amd64:1.4 dnsmasq-metrics-amd64:1.0 exechealthz-amd64:1.2 pause-amd64:3.0 kubernetes-dashboard-amd64:v1.5.0)
 for imageName in ${images[@]} ; do
   docker pull cloudnil/$imageName
   docker tag cloudnil/$imageName gcr.io/google_containers/$imageName
