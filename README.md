@@ -1,25 +1,18 @@
 # kubernetes-library
 
-#### kubernetes v1.7.6 dependency:
-- etcd-amd64:3.0.17
-- pause-amd64:3.0
-- kube-proxy-amd64:v1.7.6 
-- kube-scheduler-amd64:v1.7.6
-- kube-controller-manager-amd64:v1.7.6 
-- kube-apiserver-amd64:v1.7.6
-- kubernetes-dashboard-amd64:v1.6.1
-- k8s-dns-sidecar-amd64:1.14.4
-- k8s-dns-kube-dns-amd64:1.14.4
-- k8s-dns-dnsmasq-nanny-amd64:1.14.4
+#### kubernetes v1.11.0 dependency:
+- etcd-amd64:3.2.18
+- pause-amd64:3.1
+- kube-proxy-amd64:v1.11.0 
+- kube-scheduler-amd64:v1.11.0
+- kube-controller-manager-amd64:v1.11.0 
+- kube-apiserver-amd64:v1.11.0
+- k8s.gcr.io/coredns:1.1.3
 
 ```bash
 #!/bin/bash
-images=(kube-proxy-amd64:v1.7.6 kube-scheduler-amd64:v1.7.6 kube-controller-manager-amd64:v1.7.6 kube-apiserver-amd64:v1.7.6 etcd-amd64:3.0.17 pause-amd64:3.0 kubernetes-dashboard-amd64:v1.6.1 k8s-dns-sidecar-amd64:1.14.4 k8s-dns-kube-dns-amd64:1.14.4 k8s-dns-dnsmasq-nanny-amd64:1.14.4)
+images=(kube-proxy-amd64:v1.11.0 kube-scheduler-amd64:v1.11.0 kube-controller-manager-amd64:v1.11.0 kube-apiserver-amd64:v1.11.0 etcd-amd64:3.2.18 pause-amd64:3.1)
 for imageName in ${images[@]} ; do
   docker pull cloudnil/$imageName
-  docker tag cloudnil/$imageName hub.lonhwin.com/$imageName
-  docker push hub.lonhwin.com/$imageName
-  #docker tag cloudnil/$imageName gcr.io/google_containers/$imageName
-  docker rmi cloudnil/$imageName
 done
 ```
